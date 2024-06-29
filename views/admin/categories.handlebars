@@ -1,10 +1,11 @@
 {{#each categories}}
 <div class="card col-8 mx-auto mt-4">
     <div class="card-body">
-        <h4>Title: {{title}}</h1>
+        <h4 class="fw-bold">Title: {{title}}</h1>
             <hr>
-            <small>slug: {{slug}}</small><br>
-            <small>Creation date: {{date}}</small><br>
+            <strong>Slug: </strong><small>{{slug}}</small><br>
+            <strong>Creation date: </strong><small>{{date}}</small><br>
+            <hr>
             <div class="mt-2 d-flex align-items-center">
                 <a href="/admin/categories/edit/{{_id}}" class="col-xxl-1"><button class="btn btn-dark "
                         name="title">Edit</button></a>

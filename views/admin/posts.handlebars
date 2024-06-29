@@ -1,0 +1,25 @@
+{{#each posts}}
+
+<div class="card col-8 mx-auto mt-4">
+    <div class="card-body">
+        <h4 class="fw-bold">Title: {{title}}</h4>
+            <hr>
+            <strong class="fw-bold">Slug: </strong><small>{{slug}}</small><br>
+            <strong class="fw-bold">Description: </strong><small>{{description}}</small><br>
+            <strong class="fw-bold">Content: </strong><small>{{content}}</small><br>
+            <strong class="fw-bold">Category: </strong><small>{{category.title}}</small><br>
+            <strong class="fw-bold">Creation date: </strong><small>{{date}}</small><br>
+            <hr>
+            <div class="mt-2 d-flex align-items-center">
+                <a href="/admin/categories/edit/{{_id}}" class="col-xxl-1"><button class="btn btn-dark "
+                        name="title">Edit</button></a>
+                <form action="/admin/categories/delete" method="post">
+                    <input type="hidden" name="id" value="{{_id}}">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </div>
+    </div>
+</div>
+{{else}}
+
+{{/each}}

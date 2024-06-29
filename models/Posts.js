@@ -3,21 +3,25 @@ const Schema = mongoose.Schema
 
 const Posts = new Schema({
     title: {
-        type: string,
-        require: true
+        type: String,
+        required: true
+    },
+    slug:{
+        type: String,
+        required: true
     },
     description: {
-        type: string,
-        require: true
+        type: String,
+        required: true
     },
     content: {
-        type: string,
-        require: true
+        type: String,
+        required: true
     },
     category: {
         type: Schema.Types.ObjectId,
         ref: 'Categories',
-        require: true,
+        required: true,
     },
     date: {
         type: Date,
