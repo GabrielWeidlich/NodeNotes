@@ -5,9 +5,13 @@
             <hr>
             <small>slug: {{slug}}</small><br>
             <small>Creation date: {{date}}</small><br>
-            <div class="mt-2">
-                <a href="/admin/categories/edit/{{_id}}"><button class="btn btn-dark" name="title">Edit</button></a>
-                <button class="btn btn-danger">Delete</button>
+            <div class="mt-2 d-flex align-items-center">
+                <a href="/admin/categories/edit/{{_id}}" class="col-xxl-1"><button class="btn btn-dark "
+                        name="title">Edit</button></a>
+                <form action="/admin/categories/delete" method="post">
+                    <input type="hidden" name="id" value="{{_id}}">
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
             </div>
     </div>
 </div>

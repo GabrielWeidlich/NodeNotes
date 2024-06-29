@@ -26,6 +26,16 @@ router.get('/categories/edit/:id',(req,res)=>{
     })
 })
 
+router.post('/categories/delete',(req,res)=>{
+    Category.deleteOne({_id:req.body.id}).then(()=>{
+        req.flash('success_msg','Category deleted successfully')
+        res.redirect('/admin/categories')
+    }).catch((error)=>{
+        req.flash('error_msg','An error has been ocurred '+ error)
+        res.redirect('/admin/categories')
+    })
+})
+
 router.post('/categories/edit',(req,res)=>{
     let errors = []
     if(!req.body.title || req.body.title == undefined || req.body.title == null){
@@ -58,6 +68,7 @@ router.post('/categories/edit',(req,res)=>{
             res.redirect('/admin/categories')
         })
     }
+
 
    
 })
