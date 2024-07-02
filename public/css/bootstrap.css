@@ -12089,7 +12089,8 @@ textarea.form-control-lg {
   background-image: url(../img/5172660.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: left center;
+  background-attachment: fixed;
 }
 
 .nav-background-gradient{
