@@ -6,15 +6,16 @@
 
 <div class="card container mt-3 col-8 yellow-border">
     <div class="card-body mt-2 col">
-        <h1>Add category</h1>
+        <h2>Add category</h2>
         <hr>
         <form action="/admin/categories/new" method="POST">
             <div class="row-cols-2">
-                <label for="title" method="POST">Title:</label>
-                    <input type="text" class="form-control-sm" placeholder="Category title" name="title" id="title"><br><br>
-                <label for="slug">Slug:</label>
-                    <input type="text" class="form-control-sm" placeholder="Category slug" name="slug" id="slug"><br><br>
+                <label for="title">Title:</label>
+                    <input type="text" class="form-control-sm" placeholder="Category title" name="title" id="title"><br>
+                <label for="slug" class="mt-2">Slug:</label>
+                    <input type="text" class="form-control-sm" placeholder="Category slug" name="slug" id="slug"><br>
             </div>
+            <hr class="mt-3">
             <button class="btn btn-background-gradient">Add</button>
 
         </form>

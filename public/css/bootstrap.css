@@ -4059,7 +4059,7 @@ textarea.form-control-lg {
   font-size: var(--bs-navbar-toggler-font-size);
   line-height: 1;
   color: transparent;
-  background-color:  #f9c20f;
+  background-color:  transparent;
   border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
   border-radius: var(--bs-navbar-toggler-border-radius);
   transition: var(--bs-navbar-toggler-transition);
@@ -12093,7 +12093,7 @@ textarea.form-control-lg {
 }
 
 .nav-background-gradient{
-  background-image: linear-gradient( #f9c20f,#111111);
+  background-image: linear-gradient( #f9c20f,transparent);
 }
 
 .btn-background-gradient{
@@ -12109,6 +12109,18 @@ textarea.form-control-lg {
   border-radius: var(--bs-card-border-radius);
 }
 
+.col-separe-1{
+  flex: 0 0 auto;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 768px){
+  .row-cols-2 > * {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
  @media (max-width: 768px) {
   .marging-right-btn{
     margin-right: 8rem;
@@ -12116,6 +12128,12 @@ textarea.form-control-lg {
   a{
     text-decoration: none;
   }
+
+  .form-control-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: var(--bs-border-radius-sm);
+}
 }
 
 @media (max-width: 500px) {
@@ -12126,5 +12144,6 @@ textarea.form-control-lg {
     text-decoration: none;
   }
 }
+
 
 /*# sourceMappingURL=bootstrap.css.map */

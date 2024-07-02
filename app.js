@@ -9,6 +9,9 @@ const Categories = mongoose.model('Categories')
 const db = require('./config/db')
 const session = require('express-session')
 const flash = require('connect-flash')
+const users = require('./routes/user')
+const passport = require('passport')
+require('./config/auth')(passport)  
 
 
 //Configs
@@ -18,6 +21,10 @@ const flash = require('connect-flash')
             resave: true,
             saveUninitialized: true
         }))
+
+        //Passport
+        app.use(passport.initialize())
+        app.use(passport.session())
         app.use(flash())
 
     //Handlebars
@@ -43,6 +50,8 @@ const flash = require('connect-flash')
                 console.log('An error has been ocurred '+ error)
             })
         
+
+
 app.get('/home',(req,res)=>{
     res.render('index')
 })
@@ -52,6 +61,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use('/admin', admin)
+app.use('/users', users)
 
 //Config porta
     const PORT = (process.env.PORT || 8081)
