@@ -4,6 +4,12 @@
  * Copyright 2011-2024 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+ html{
+  height: 100%;
+  width: 100%;
+}
+
 :root,
 [data-bs-theme=light] {
   --bs-blue: #0d6efd;
@@ -3010,7 +3016,7 @@ textarea.form-control-lg {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+  border: var(--bs-btn-border-width) solid /*var(--bs-btn-border-color)*/;
   border-radius: var(--bs-btn-border-radius);
   background-color: var(--bs-btn-bg);
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3021,7 +3027,7 @@ textarea.form-control-lg {
   }
 }
 .btn:hover {
-  color: var(--bs-btn-hover-color);
+  /* color: var(--bs-btn-hover-color); */
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
 }
@@ -4052,8 +4058,8 @@ textarea.form-control-lg {
   padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
   font-size: var(--bs-navbar-toggler-font-size);
   line-height: 1;
-  color: white;
-  background-color: rgb(250, 249, 247);
+  color: transparent;
+  background-color:  #f9c20f;
   border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
   border-radius: var(--bs-navbar-toggler-border-radius);
   transition: var(--bs-navbar-toggler-transition);
@@ -4416,8 +4422,8 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: var(--bs-card-bg);
   background-clip: border-box;
-  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
-  border-radius: var(--bs-card-border-radius);
+  /* border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  border-radius: var(--bs-card-border-radius); */
 }
 .card > hr {
   margin-right: 0;
@@ -12068,9 +12074,57 @@ textarea.form-control-lg {
   }
 }
 
+/*---------------------------------------------------------*/
+
 .vertical-line{
   border-left: 1px solid white;
   height: 2.5rem;
+}
+
+.marging-right-btn{
+  margin-right: 13.5rem;
+}
+
+.body-background-img{
+  background-image: url(../img/5172660.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav-background-gradient{
+  background-image: linear-gradient( #f9c20f,#111111);
+}
+
+.btn-background-gradient{
+  background-image: linear-gradient(to right, #f9c20f, #795b12);
+}
+
+.btn-delete-btn{
+  background-image: linear-gradient(to right, #ff2a2a, #692f2f);
+}
+
+.yellow-border{
+  border: var(--bs-card-border-width) solid #f9c20f;
+  border-radius: var(--bs-card-border-radius);
+}
+
+ @media (max-width: 768px) {
+  .marging-right-btn{
+    margin-right: 8rem;
+  }
+  a{
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .marging-right-btn{
+    margin-right: 5rem;
+  }
+  a{
+    text-decoration: none;
+  }
 }
 
 /*# sourceMappingURL=bootstrap.css.map */

@@ -1,21 +1,24 @@
 {{#each text}}
-    <div class="alert alert-danger mt-2">{{text}}</div>
+<div class="alert alert-danger mt-2">{{text}}</div>
 
 {{else}}
 
 {{/each}}
 
-<div class="card col-8 mx-auto mt-4">
+<div class="card col-8 mx-auto mt-4 yellow-border">
     <div class="card-body">
-        <h2>Edit category:</h2><hr>
+        <h2>Edit category:</h2>
+        <hr>
         <form action="/admin/categories/edit" class="mt-4" method="POST">
-        <input type="hidden" name="id" value="{{_id}}">
+            <input type="hidden" name="id" value="{{_id}}">
             <label>Title:</label>
-            <input type="text" name="title" id="title" placeholder="New category title" value="{{title}}" class="form-control-sm-4">
+            <input type="text" name="title" id="title" placeholder="New category title" value="{{title}}"
+                class="form-control-sm-4">
             <br><br>
             <label>Slug: </label>
-            <input type="text" name="slug" id="slug" placeholder="New category slug" value="{{slug}}" class="form-control-sm-4"><br>    
-           <button class="btn btn-dark mt-4">Edit</button>
+            <input type="text" name="slug" id="slug" placeholder="New category slug" value="{{slug}}"
+                class="form-control-sm-4"><br>
+            <button class="btn btn-background-gradient mt-4">Edit</button>
         </form>
     </div>
 </div>

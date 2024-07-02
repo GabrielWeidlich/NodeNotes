@@ -43,9 +43,12 @@ const flash = require('connect-flash')
                 console.log('An error has been ocurred '+ error)
             })
         
+app.get('/home',(req,res)=>{
+    res.render('index')
+})
 
 app.get('/',(req,res)=>{
-    res.render('index')
+    res.redirect('/home')
 })
 
 app.use('/admin', admin)
