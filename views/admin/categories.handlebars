@@ -1,11 +1,10 @@
 <div class="text-end marging-right-btn">
-    <a href="/admin/posts"><button class="btn btn-background-gradient">Show posts </button></a>
-    <a href="/admin/categories/add"><button class="btn btn-background-gradient">Add new category + </button></a>
-    
+    <a href="/admin/categories/add"><button class="btn-primary btn-back">New category + </button></a>
+    <a href="/admin/posts"><button class="btn-primary btn-back">Show posts </button></a>
 </div>
 
 {{#each categories}}
-<div class="card col-8 mx-auto mt-4 yellow-border">
+<div class="card col-8 mx-auto mt-4 purple-border">
     <div class="card-body">
         <h4 class="fw-bold">Title: {{title}}</h1>
             <hr>
@@ -13,11 +12,11 @@
             <strong>Creation date: </strong><small>{{date}}</small><br>
             <hr>
             <div class="mt-2 d-flex align-items-center">
-                <a href="/admin/categories/edit/{{_id}}" class="col-separe-1"><button class="btn btn-background-gradient "
+                <a href="/admin/categories/edit/{{_id}}" class="col-separe-1"><button class="btn-primary "
                         name="title">Edit</button></a>
                 <form action="/admin/categories/delete" method="post">
                     <input type="hidden" name="id" value="{{_id}}">
-                    <button class="btn btn-delete-btn" type="submit">Delete</button>
+                    <button class="btn-delete" type="submit">Delete</button>
                 </form>
             </div>
     </div>
