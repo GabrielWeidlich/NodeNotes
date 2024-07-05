@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg nav-background-gradient">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="/">NodeNotes</a>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -10,13 +11,25 @@
         <li class="nav-item">
           <a class="nav-link active text-white-50" aria-current="page" href="/">Home</a>
         </li>
+
+        {{#if user}}
+
+        <li class="nav-item">
+          <a class="nav-link text-white-50" href="">Logout</a>
+        </li>
+
+        {{else}}
+
         <li class="nav-item">
           <a class="nav-link text-white-50" href="/users/login">Login</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white-50" href="/users/register">Register</a>
         </li>
-        
+
+        {{/if}}
+
+
       </ul>
     </div>
   </div>

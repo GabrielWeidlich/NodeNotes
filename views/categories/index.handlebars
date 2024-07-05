@@ -1,0 +1,16 @@
+<div class="card col-8 mx-auto mt-4 purple-border">
+    <div class="card-body">
+        <h4 class="fw-bold">Categories:</h4>
+        <hr>
+
+        {{#each categories}}
+        <a href="/categories/{{slug}}">
+            <h5 class="here mt-2">{{title}}</h5>
+        </a>
+
+        {{else}}
+        {{/each}}
+
+    </div>
+
+</div>

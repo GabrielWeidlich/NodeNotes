@@ -1,0 +1,17 @@
+<h1 class="container text-center here fst-italic">Category: {{category.title}}</h1>
+
+{{#each posts}}
+
+<div class="card container mt-3 col-8 purple-border">
+    <div class="card-body mt-2">
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <a href="/posts/{{slug}}" class="btn-primary">Read more</a>
+        <hr>
+        <strong><small>Post date: </strong>{{date}}</small>
+    </div>
+</div>
+
+{{else}}
+<p>No posts yet</p>
+{{/each}}

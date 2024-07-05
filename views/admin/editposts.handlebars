@@ -7,21 +7,21 @@
 
 <div class="card container mt-3 col-8 purple-border">
     <div class="card-body mt-2">
-        <h2>Edit post:</h2>
+        <h2 class="fw-bold">Edit post</h2>
         <hr>
-        <form action="/admin/posts/edit" class="mt-4" method="POST">
+        <form action="/admin/posts/edit" class="mt-2" method="POST">
             <div class="row-cols-2">
                 <input type="hidden" name="id" value="{{_id}}">
-                <label>Title:</label><br>
+                <label>Title:</label>
                 <input type="text" name="title" id="title" placeholder="New post title" value="{{title}}"
                     class="form-control-sm"><br>
-                <label class="mt-2">Slug: </label><br>
+                <label class="mt-2">Slug: </label>
                 <input type="text" name="slug" id="slug" placeholder="New post slug" value="{{slug}}"
-                    class="form-control-sm-4"><br>
-                <label class="mt-2">Description: </label><br>
+                    class="form-control-sm"><br>
+                <label class="mt-2">Description: </label>
                 <input type="text" name="description" placeholder="New post description" value="{{description}}"
-                    class="form-control-sm-4"><br>
-                <label class="mt-2">Content: </label><br>
+                    class="form-control-sm"><br>
+                <label class="mt-2">Content: </label>
                 <textarea name="content" class="form-select-sm"
                     placeholder="Enter the new content here">{{content}}</textarea><br>
             </div>

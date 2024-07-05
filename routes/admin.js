@@ -6,8 +6,9 @@ require('../models/Categories')
 const Category = mongoose.model('Categories')
 require('../models/Posts')
 const Posts = mongoose.model('Posts')
+const { eAdmin } = require('../helpers/eAdmin')
 
-router.get('/categories', (req, res) => {
+router.get('/categories',eAdmin, (req, res) => {
     Category.find().lean().then((categories) => {
         res.render('admin/categories', { categories: categories })
     }).catch((error) => {
@@ -15,11 +16,11 @@ router.get('/categories', (req, res) => {
     })
 })
 
-router.get('/categories/add', (req, res) => {
+router.get('/categories/add', eAdmin, (req, res) => {
     res.render('admin/addcategory')
 })
 
-router.get('/categories/edit/:id', (req, res) => {
+router.get('/categories/edit/:id', eAdmin, (req, res) => {
     Category.findOne({ _id: req.params.id }).then((category) => {
         res.render('admin/editcategory', {
             title: category.title,
@@ -32,7 +33,7 @@ router.get('/categories/edit/:id', (req, res) => {
     })
 })
 
-router.post('/categories/delete', (req, res) => {
+router.post('/categories/delete', eAdmin, (req, res) => {
     Category.deleteOne({ _id: req.body.id }).then(() => {
         req.flash('success_msg', 'Category deleted successfully')
         res.redirect('/admin/categories')
@@ -42,7 +43,7 @@ router.post('/categories/delete', (req, res) => {
     })
 })
 
-router.get('/posts', (req, res) => {
+router.get('/posts', eAdmin, (req, res) => {
     Posts.find().lean().populate('category').sort({ date: 'desc' }).then((posts) => {
         res.render('admin/posts', { posts: posts })
     }).catch((error) => {
@@ -51,7 +52,7 @@ router.get('/posts', (req, res) => {
 
 })
 
-router.get('/posts/add', (req, res) => {
+router.get('/posts/add', eAdmin, (req, res) => {
     Category.find().lean().then((categories) => {
         res.render('admin/addposts', { categories: categories })
     }).catch((error) => {
@@ -60,7 +61,7 @@ router.get('/posts/add', (req, res) => {
     })
 })
 
-router.get('/posts/edit/:id', (req, res) => {
+router.get('/posts/edit/:id', eAdmin, (req, res) => {
     Posts.findOne({ _id: req.params.id }).then((posts) => {
         res.render('admin/editposts', {
             title: posts.title,
@@ -75,7 +76,7 @@ router.get('/posts/edit/:id', (req, res) => {
     })
 })
 
-router.post('/posts/edit', (req, res) => {
+router.post('/posts/edit', eAdmin, (req, res) => {
     let errors = []
     if (!req.body.title || req.body.title == undefined || req.body.title == null) {
         errors.push({ text: "The new title is invalid." })
@@ -96,8 +97,8 @@ router.post('/posts/edit', (req, res) => {
         res.render('admin/posts', { errors: errors })
     } else {
         Posts.findOne({ _id: req.body.id }).then((post) => {
-            
-                post.title = req.body.title,
+
+            post.title = req.body.title,
                 post.slug = req.body.slug,
                 post.description = req.body.description,
                 post.content = req.body.content
@@ -105,28 +106,28 @@ router.post('/posts/edit', (req, res) => {
             post.save().then(() => {
                 req.flash('success_msg', 'Post edited successfully.')
                 res.redirect('/admin/posts')
-            }).catch((error)=>{
-                req.flash('error_msg','An error has been ocurred '+error)
+            }).catch((error) => {
+                req.flash('error_msg', 'An error has been ocurred ' + error)
             })
         }).catch((error) => {
-            req.flash('error_msg', 'An error has been ocurred'+error)
+            req.flash('error_msg', 'An error has been ocurred' + error)
             res.redirect('/admin/posts')
         })
 
     }
 })
 
-router.post('/posts/delete',(req,res)=>{
-    Posts.deleteOne({_id:req.body.id}).then(()=>{
-        req.flash('success_msg','Post deleted successfully.')
+router.post('/posts/delete', eAdmin, (req, res) => {
+    Posts.deleteOne({ _id: req.body.id }).then(() => {
+        req.flash('success_msg', 'Post deleted successfully.')
         res.redirect('/admin/posts')
-    }).catch((error)=>{
-        req.flash('error_msg','An error has been ocurred '+error)
+    }).catch((error) => {
+        req.flash('error_msg', 'An error has been ocurred ' + error)
         res.redirect('/admin/posts')
     })
 })
 
-router.post('/posts/new', (req, res) => {
+router.post('/posts/new', eAdmin, (req, res) => {
     let errors = []
     if (!req.body.title || req.body.title == undefined || req.body.title == null) {
         errors.push({ text: 'Invalid title.' })
@@ -164,7 +165,7 @@ router.post('/posts/new', (req, res) => {
     }
 })
 
-router.post('/categories/edit', (req, res) => {
+router.post('/categories/edit', eAdmin, (req, res) => {
     let errors = []
     if (!req.body.title || req.body.title == undefined || req.body.title == null) {
         errors.push({ text: 'Invalid title.' })
@@ -201,7 +202,7 @@ router.post('/categories/edit', (req, res) => {
 
 })
 
-router.post('/categories/new', (req, res) => {
+router.post('/categories/new', eAdmin, (req, res) => {
     let errors = []
     if (!req.body.title || typeof req.body.title == undefined || req.body.title == null) {
         errors.push({ text: 'Invalid title.' })

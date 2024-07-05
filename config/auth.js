@@ -32,9 +32,9 @@ module.exports = function(passport){
     passport.deserializeUser((id, done)=>{
         Users.findById(id).then((user)=>{
             if(user){
-                return done(null, false)
+                return done(null, user)
             }
-            done(null, user)
+            done(null, null)
         }).catch((error)=>{
             done(error, null)
         })

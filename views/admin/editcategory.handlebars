@@ -5,18 +5,17 @@
 
 {{/each}}
 
-<div class="card col-8 mx-auto mt-4 purple-border">
-    <div class="card-body">
-        <h2>Edit category:</h2>
+<div class="card container mt-3 col-8 purple-border">
+    <div class="card-body mt-2">
+        <h2 class="fw-bold">Edit category</h2>
         <hr>
         <form action="/admin/categories/edit" class="mt-2" method="POST">
             <div class="row-cols-2">
                 <input type="hidden" name="id" value="{{_id}}">
                 <label>Title:</label>
                 <input type="text" name="title" id="title" placeholder="New category title" value="{{title}}"
-                    class="form-control-sm">
-                <br><br>
-                <label>Slug: </label>
+                    class="form-control-sm"><br>
+                <label class="mt-2">Slug: </label>
                 <input type="text" name="slug" id="slug" placeholder="New category slug" value="{{slug}}"
                     class="form-control-sm"><br>
             </div>

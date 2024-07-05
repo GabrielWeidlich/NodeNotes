@@ -5,10 +5,10 @@
 {{/each}}
 
 <div class="card container mt-3 col-8 purple-border">
-    <div class="card-body mt-2 col">
-        <h2>Add category</h2>
+    <div class="card-body mt-2">
+        <h2 class="fw-bold">Add category</h2>
         <hr>
-        <form action="/admin/categories/new" method="POST">
+        <form action="/admin/categories/new" method="POST" class="mt-2">
             <div class="row-cols-2">
                 <label for="title">Title:</label>
                     <input type="text" class="form-control-sm" placeholder="Category title" name="title" id="title"><br>
