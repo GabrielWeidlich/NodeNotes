@@ -5,8 +5,8 @@
 <div class="card bg-light mt-4 container purple-border">
   <div class="card-body">
 
-    <h1 class="text-center fw-bold fst-italic here">Welcome to the NodeNotes!</h1>
-    <hr>
+    <h1 class="text-center fw-bold here">Welcome to the NodeNotes!</h1>
+    <br>
     <p class="text-justify text-indent">My project is a blog developed using Node.js, a robust and efficient platform
       for web applications. The blog allows users to explore a variety of article categories and interact through
       comments, providing a dynamic and interactive experience for readers.</p>
@@ -18,38 +18,40 @@
       parse
       and manipulate data sent by users. For the frontend, Handlebars was chosen as the templating engine, enabling
       dynamic content rendering and seamless user interactions.</p>
-    <p class="text-justify text-indent"> blog's data is managed using MongoDB, a NoSQL database that offers
+    <p class="text-justify text-indent"> Blog's data is managed using MongoDB, a NoSQL database that offers
       flexibility and
       scalability. This choice ensures that the application can handle a growing amount of data efficiently. Overall,
       the combination of these technologies has resulted in a powerful and user-friendly blog platform, showcasing the
       capabilities of modern web development with Node.js.</p>
-    <hr>
+    <br>
     <small class="fw-bold fst-italic">Don't have an account yet? Create one by clicking <a href="/users/register"
         class="here">HERE</a></small>
   </div>
 </div>
 
-<hr class="hr-purple">
-
-<div class=" container mt-3 col-9">
+<div class="card container mx-auto col-10 purple-border bg-light mt-5">
   <div class="container text-center">
-    <h1 class="here fst-italic">Recent posts</h1>
+    <h1 class="here mt-3 fw-bold my-3">Recent Posts</h1>
   </div>
-</div>
 
 
-{{#each posts}}
+  {{#each posts}}
 
-<div class="card container mt-3 col-8 purple-border">
-  <div class="card-body mt-2">
-    <h3>{{title}}</h3>
-    <p>- {{description}}</p>
-    <a href="/posts/{{slug}}" class="btn-primary mt-2">Read more</a>
-    <hr>
-    <strong>Category: </strong><small>{{category.title}}</small><br>
-    <strong>Post date: </strong><small>{{date}}</small>
+  <div class="card container col-8 purple-border mt-4">
+    <div class="card-body mt-2">
+      <h3>{{title}}</h3>
+      <p><svg xmlns="http://www.w3.org/2000/svg" height="12" width="12"
+          viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path fill="#30004f"
+            d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
+        </svg> {{description}}</p>
+      <a href="/posts/{{slug}}" class="btn-primary">Read more</a>
+      <br><br>
+      <strong class="here">Category: </strong><small>{{category.title}}</small><br>
+      <strong class="here">Post date: </strong><small>{{date}}</small>
+    </div>
   </div>
-</div>
 
-{{else}}
-{{/each}}
+  {{else}}
+  {{/each}}
+</div>

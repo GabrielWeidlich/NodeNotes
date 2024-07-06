@@ -1,29 +1,32 @@
 {{#each errors}}
-    <div class="alert alert-danger mt-2">{{text}}</div>
+<div class="alert alert-danger mt-2">{{text}}</div>
 
 {{else}}
 
 {{/each}}
 
-<div class="card container mt-3 col-8 purple-border">
+<div class="card container mt-3 col-6 purple-border">
     <div class="card-body mt-2">
-        <h2 class="fw-bold">Let's start!</h2>
-        <hr>
-        <form action="" method="POST">
-            <div class="row-cols-2">
-                <label for="username">Username:</label>
-                    <input type="text" class="form-control-sm" placeholder="Enter your username" name="username"><br>
-                <label for="email" class="mt-2">Email:</label>
-                    <input type="email" class="form-control-sm" placeholder="Enter your email" name="email"><br>
-                <label for="password" class="mt-2">Password:</label>
-                    <input type="password" class="form-control-sm" placeholder="Enter your password" name="password"><br>
-                <label for="passwordConfirmation" class="mt-2">Confirm password:</label>
-                    <input type="password" class="form-control-sm" placeholder="Enter your password again" name="passwordConfirmation"><br>
-            </div>
-            <hr class="mt-3">
-            <button class="btn-primary">Create account</button><br>
-            <small class="fw-bold">Obs: After creating an account, you need to log in.</small>
+        <h2 class="fw-bold container text-center here">Let's Start</h2><br>
+        <div class="container col-8">
+            <form action="" method="POST" class="form-width">
+                <div class="mb-2">
+                    <label for="username" class="here fw-bold">Username:</label>
+                    <input type="text" class="form-control border-input-text mb-2" placeholder="Enter your username" name="username">
+                    <label for="email" class="here fw-bold">Email:</label>
+                    <input type="email" class="form-control border-input-text mb-2" placeholder="Enter your email"
+                        name="email">
+                    <label for="password" class="here fw-bold">Password:</label>
+                    <input type="password" class="form-control border-input-text mb-2" placeholder="Enter your password"
+                        name="password">
+                    <label for="passwordConfirmation" class="here fw-bold">Confirm password:</label>
+                    <input type="password" class="form-control border-input-text"
+                        placeholder="Enter your password again" name="passwordConfirmation"><br>
+                </div>
+                <button class="btn-primary container text-center">Create account</button><br>
+                <small class="fw-bold">Obs: After creating an account, you need to log in.</small>
 
-        </form>
+            </form>
+        </div>
     </div>
 </div>

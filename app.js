@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const handlebars = require('express-handlebars')
+const hdbrs = require('handlebars')
 const path = require('path')
 const admin = require('./routes/admin')
 const bodyParser = require('body-parser')
@@ -31,10 +32,21 @@ app.use(passport.session())
 app.use(flash())
 
 //Handlebars
-app.engine('handlebars', handlebars.engine({ defaultLayout: 'main' }))
+hdbrs.registerHelper('ifEqual', function(arg1, arg2, options) {
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
+app.engine('handlebars', handlebars.engine({ 
+    defaultLayout: 'main',
+    runtimeOptions:{
+        allowProtoPropertiesByDefault:true,
+        allowProtoMethodsByDefault: true
+    }
+}))
 app.set('view engine', 'handlebars')
+
 //Public
 app.use(express.static(path.join(__dirname, 'public')))
+
 //Middleware
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
@@ -43,9 +55,11 @@ app.use((req, res, next) => {
     res.locals.user = req.user || null;
     next();
 })
+
 //BodyParser
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
 //Mongoose
 mongoose.Promise = global.Promise
 mongoose.connect(db.mongoRUI).then(() => {
@@ -115,7 +129,6 @@ app.get('/posts/:slug',(req,res)=>{
         res.redirect('/')
     })
 })
-
 
 app.use('/admin', admin)
 app.use('/users', users)

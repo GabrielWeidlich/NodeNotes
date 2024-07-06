@@ -1,17 +1,29 @@
-<h1 class="container text-center here fst-italic">Category: {{category.title}}</h1>
+<div class="card container mx-auto col-10 purple-border bg-light mt-5">
 
-{{#each posts}}
+    <h1 class="container text-center here fw-bold mt-4">{{category.title}}</h1>
 
-<div class="card container mt-3 col-8 purple-border">
-    <div class="card-body mt-2">
-        <h3>{{title}}</h3>
-        <p>{{description}}</p>
-        <a href="/posts/{{slug}}" class="btn-primary">Read more</a>
-        <hr>
-        <strong><small>Post date: </strong>{{date}}</small>
+    {{#each posts}}
+
+    <div class="card container mt-3 col-8 purple-border my-3">
+        <div class="card-body mt-2">
+            <h3>{{title}}</h3>
+            <p><svg xmlns="http://www.w3.org/2000/svg" height="12" width="12"
+                    viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path fill="#30004f"
+                        d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
+                </svg> {{description}}</p>
+            <a href="/posts/{{slug}}" class="btn-primary">Read more</a>
+            <br><br>
+            <strong class="here"><small>Post date: </strong>{{date}}</small>
+        </div>
     </div>
-</div>
 
-{{else}}
-<p>No posts yet</p>
-{{/each}}
+    {{else}}
+    <p class="font-sizer here">No posts yet - <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20"
+            viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path fill="#30004f"
+                d="M119.4 44.1c23.3-3.9 46.8-1.9 68.6 5.3l49.8 77.5-75.4 75.4c-1.5 1.5-2.4 3.6-2.3 5.8s1 4.2 2.6 5.7l112 104c2.9 2.7 7.4 2.9 10.5 .3s3.8-7 1.7-10.4l-60.4-98.1 90.7-75.6c2.6-2.1 3.5-5.7 2.4-8.8L296.8 61.8c28.5-16.7 62.4-23.2 95.7-17.6C461.5 55.6 512 115.2 512 185.1v5.8c0 41.5-17.2 81.2-47.6 109.5L283.7 469.1c-7.5 7-17.4 10.9-27.7 10.9s-20.2-3.9-27.7-10.9L47.6 300.4C17.2 272.1 0 232.4 0 190.9v-5.8c0-69.9 50.5-129.5 119.4-141z" />
+        </svg></p>
+    {{/each}}
+
+</div>

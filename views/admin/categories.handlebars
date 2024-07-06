@@ -1,26 +1,27 @@
 <div class="text-end marging-right-btn">
-    <a href="/admin/categories/add"><button class="btn-primary btn-back">New category + </button></a>
-    <a href="/admin/posts"><button class="btn-primary btn-back">Show posts </button></a>
+    <a href="/admin/categories/add"><button class="btn-back">New category + </button></a>
+    <a href="/admin/posts"><button class="btn-back">Show posts </button></a>
 </div>
 
 {{#each categories}}
-<div class="card col-8 mx-auto mt-4 purple-border">
+<div class="card container col-6 mt-3 bg-light purple-border">
     <div class="card-body mt-2">
-        <h4 class="fw-bold">{{title}}</h1>
-            <hr>
-            <strong>Slug: </strong><small>{{slug}}</small><br>
-            <strong>Creation date: </strong><small>{{date}}</small><br>
-            <hr>
-            <div class="mt-2 d-flex align-items-center">
-                <a href="/admin/categories/edit/{{_id}}" class="col-separe-1"><button class="btn-primary "
-                        name="title">Edit</button></a>
-                <form action="/admin/categories/delete" method="post">
-                    <input type="hidden" name="id" value="{{_id}}">
-                    <button class="btn-delete" type="submit">Delete</button>
-                </form>
-            </div>
+        <h2 class="fw-bold container text-center here">{{title}}</h2><br>
+
+        <strong class="here">Slug: </strong><small>{{slug}}</small><br>
+        <strong class="here">Creation date: </strong><small>{{date}}</small><br>
+
+        <div class="mt-4 d-flex align-items-center">
+            <a href="/admin/categories/edit/{{_id}}" class="col-separe-1"><button class="btn-primary"
+                    name="title">Edit</button></a>
+            <form action="/admin/categories/delete" method="post">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button class="btn-delete" type="submit">Delete</button>
+            </form>
+        </div>
+
     </div>
 </div>
 {{else}}
-<h4 class="mt-3">Nenhuma categoria registrada.</h4>
+<h4 class="fw-bold container text-center here">Nenhuma categoria registrada.</h4>
 {{/each}}

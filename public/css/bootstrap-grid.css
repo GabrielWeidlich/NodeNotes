@@ -91,6 +91,7 @@
   width: 50%;
 }
 
+
 .row-cols-3 > * {
   flex: 0 0 auto;
   width: 33.33333333%;
@@ -4081,6 +4082,13 @@
   .d-print-none {
     display: none !important;
   }
+}
+
+/*-------------------------------------------*/
+
+.form-width{
+  width: 80%;
+
 }
 
 /*# sourceMappingURL=bootstrap-grid.css.map */
