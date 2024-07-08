@@ -8,7 +8,7 @@ require('../models/Posts')
 const Posts = mongoose.model('Posts')
 const { eAdmin } = require('../helpers/eAdmin')
 
-router.get('/categories',eAdmin, (req, res) => {
+router.get('/categories', eAdmin, (req, res) => {
     Category.find().lean().then((categories) => {
         res.render('admin/categories', { categories: categories })
     }).catch((error) => {
@@ -90,11 +90,12 @@ router.post('/posts/edit', eAdmin, (req, res) => {
     if (!req.body.content || req.body.content == undefined || req.body.content == null) {
         errors.push({ text: "The new content is invalid." })
     }
-    if (req.body.title < 0 || req.body.slug < 0 || req.body.description < 2 || req.body.content < 2) {
+    if (req.body.title < 2 || req.body.slug < 2 || req.body.description < 2 || req.body.content < 2) {
         errors.push({ text: 'Not enough characters' })
     }
     if (errors.length > 0) {
-        res.render('admin/posts', { errors: errors })
+        req.flash('error_msg', errors.map(err => err.text))
+        res.redirect(`/admin/posts`)
     } else {
         Posts.findOne({ _id: req.body.id }).then((post) => {
 
@@ -160,7 +161,7 @@ router.post('/posts/new', eAdmin, (req, res) => {
             res.redirect('/admin/posts')
         }).catch((error) => {
             req.flash('error_msg', 'Failed to create post ' + error)
-            res.redirect('admin/posts')
+            res.redirect('/admin/posts')
         })
     }
 })
@@ -175,6 +176,10 @@ router.post('/categories/edit', eAdmin, (req, res) => {
     }
     if (req.body.title < 2 || req.body.slug < 2) {
         errors.push({ text: 'Not enough characters.' })
+    }
+    if (errors.length > 0) {
+        req.flash('error_msg',errors.map(err => err.text))
+        res.redirect('/admin/categories')
     } else {
         Category.findOne({ _id: req.body.id }).then((category) => {
             if (!category) {

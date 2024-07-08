@@ -130,11 +130,13 @@ app.get('/posts/:slug',(req,res)=>{
     })
 })
 
+
+
 app.use('/admin', admin)
 app.use('/users', users)
 
 //Config porta
-const PORT = (process.env.PORT || 8081)
+const PORT = (3333)
 app.listen(PORT, (req, res) => {
     console.log('Starting server...')
 })
