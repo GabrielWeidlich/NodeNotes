@@ -32,13 +32,13 @@ app.use(passport.session())
 app.use(flash())
 
 //Handlebars
-hdbrs.registerHelper('ifEqual', function(arg1, arg2, options) {
+hdbrs.registerHelper('ifEqual', function (arg1, arg2, options) {
     return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
-app.engine('handlebars', handlebars.engine({ 
+app.engine('handlebars', handlebars.engine({
     defaultLayout: 'main',
-    runtimeOptions:{
-        allowProtoPropertiesByDefault:true,
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
         allowProtoMethodsByDefault: true
     }
 }))
@@ -62,8 +62,8 @@ app.use(bodyParser.json())
 
 //Mongoose
 mongoose.Promise = global.Promise
-mongoose.connect(db.mongoURI,{
-    useNewUrlParser:true,
+mongoose.connect('mongodb+srv://gabrielweidlichanaps:yrq1kYTg493AGRiX@cluster0.i1wtsdq.mongodb.net/nodenotes?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {
     console.log('Connected to MongoDB.')
@@ -77,7 +77,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/home', (req, res) => {
-     Posts.find().lean().populate('category').sort({ data: 'desc' }).then((posts) => {
+    Posts.find().lean().populate('category').sort({ data: 'desc' }).then((posts) => {
         res.render('index', { posts: posts })
     }).catch((error) => {
         req.flash("error_msg", "An erros has been ocurred " + error)
@@ -85,11 +85,11 @@ app.get('/home', (req, res) => {
     })
 })
 
-app.get('/categories',(req,res)=>{
-    Category.find().lean().then((categories)=>{
-        res.render('categories/index',{categories:categories})
-    }).catch((error)=>{
-        req.flash('error_msg',"An erros has been ocurred " + error)
+app.get('/categories', (req, res) => {
+    Category.find().lean().then((categories) => {
+        res.render('categories/index', { categories: categories })
+    }).catch((error) => {
+        req.flash('error_msg', "An erros has been ocurred " + error)
         res.redirect('/home')
     })
 })
@@ -100,15 +100,16 @@ app.get('/categories/:slug', (req, res) => {
             Posts.find({ category: category._id }).lean().then((posts) => {
                 res.render('categories/posts', { posts: posts, category: category })
             }).catch((error) => {
-                req.flash('error_msg', app.get('/categorias',(req,res)=>{
-                    Category.find().lean().then((categories)=>{
-                        res.render('categorias/index',{categorias:categories})
-                    }).catch((error)=>{
-                        req.flash('error_msg',"An erros has been ocurred " + error)
+                req.flash('error_msg', app.get('/categorias', (req, res) => {
+                    Category.find().lean().then((categories) => {
+                        res.render('categorias/index', { categorias: categories })
+                    }).catch((error) => {
+                        req.flash('error_msg', "An erros has been ocurred " + error)
                         res.redirect('/')
                     })
                 })
-            )})
+                )
+            })
         } else {
             req.flash('error_msg', 'This category cannot be found or does not exist.')
             res.redirect('/')
@@ -119,16 +120,16 @@ app.get('/categories/:slug', (req, res) => {
     })
 })
 
-app.get('/posts/:slug',(req,res)=>{
-    Posts.findOne({slug:req.params.slug}).lean().then((posts)=>{
-        if(posts){
-            res.render('posts/index',{posts: posts})
-        }else{
-            req.flash("error_msg",'This post cannot be found or does not exist.')
+app.get('/posts/:slug', (req, res) => {
+    Posts.findOne({ slug: req.params.slug }).lean().then((posts) => {
+        if (posts) {
+            res.render('posts/index', { posts: posts })
+        } else {
+            req.flash("error_msg", 'This post cannot be found or does not exist.')
             res.redirect('/')
         }
-    }).catch((error)=>{
-        req.flash('error_msg','An error has been ocurred ' + error)
+    }).catch((error) => {
+        req.flash('error_msg', 'An error has been ocurred ' + error)
         res.redirect('/')
     })
 })
