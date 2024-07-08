@@ -1,5 +1,5 @@
 if(process.env.NODE_ENV == 'production'){
-    module.exports = {mongoRUI: 'colocar aqui a URL do heroku'}
+    module.exports = {mongoURI: process.env.MONGO_URI}
 }else{
-    module.exports = {mongoRUI: 'mongodb://localhost:/nodenotes'}
+    module.exports = {mongoURI: 'mongodb://localhost:/nodenotes'}
 }

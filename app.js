@@ -62,7 +62,10 @@ app.use(bodyParser.json())
 
 //Mongoose
 mongoose.Promise = global.Promise
-mongoose.connect(db.mongoRUI).then(() => {
+mongoose.connect(db.mongoURI,{
+    useNewUrlParser:true,
+    useUnifiedTopology: true
+}).then(() => {
     console.log('Connected to MongoDB.')
 }).catch((error) => {
     console.log('An error has been ocurred ' + error)
