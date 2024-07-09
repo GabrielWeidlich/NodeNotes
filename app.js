@@ -16,6 +16,7 @@ const flash = require('connect-flash')
 const users = require('./routes/user')
 const passport = require('passport')
 require('./config/auth')(passport)
+require('dotenv').config()
 
 
 //Configs
@@ -62,7 +63,7 @@ app.use(bodyParser.json())
 
 //Mongoose
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb+srv://gabrielweidlichanaps:yrq1kYTg493AGRiX@cluster0.i1wtsdq.mongodb.net/nodenotes?retryWrites=true&w=majority').then(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
     console.log('Connected to MongoDB.')
 }).catch((error) => {
     console.log('An error has been ocurred ' + error)
