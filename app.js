@@ -62,10 +62,7 @@ app.use(bodyParser.json())
 
 //Mongoose
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb+srv://gabrielweidlichanaps:yrq1kYTg493AGRiX@cluster0.i1wtsdq.mongodb.net/nodenotes?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
+mongoose.connect('mongodb+srv://gabrielweidlichanaps:yrq1kYTg493AGRiX@cluster0.i1wtsdq.mongodb.net/nodenotes?retryWrites=true&w=majority').then(() => {
     console.log('Connected to MongoDB.')
 }).catch((error) => {
     console.log('An error has been ocurred ' + error)
