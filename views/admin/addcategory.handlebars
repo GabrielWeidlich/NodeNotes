@@ -4,18 +4,18 @@
 
 {{/each}}
 
-<div class="card container mt-3 col-6 bg-light purple-border">
-    <div class="card-body mt-2">
-        <h2 class="fw-bold container text-center here">Add category</h2>
-        <div class="container col-8">
-            <form action="/admin/categories/new" method="POST" class="form-width">
-                <div class="row-cols-1">
+<div class="container">
+    <div class="container-content-2">
+        <h1 class="title text-center">Add category</h1>
+        <div class="mt-4">
+            <form action="/admin/categories/new" method="POST" class="">
+                <div class="">
                     <label for="title" class="here fw-bold">Title:</label>
-                    <input type="text" class="form-control border-input-text" placeholder="Enter the category title" name="title" id="title"><br>
+                    <input type="text" class="input-control" placeholder="Enter the category title" name="title" id="title"><br>
                     <label for="slug" class="here fw-bold">Slug:</label>
-                    <input type="text" class="form-control border-input-text" placeholder="Enter the category slug" name="slug" id="slug"><br>
+                    <input type="text" class="input-control" placeholder="Enter the category slug" name="slug" id="slug"><br>
                 </div><br>
-                <button class="btn-primary container text-center mb-3">Add</button>
+                <button class="btn-init text-center mb-3">Add</button>
                 
         </div>
         </form>

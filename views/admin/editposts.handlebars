@@ -5,27 +5,27 @@
 
 {{/each}}
 
-<div class="card container mt-3 col-6 bg-light purple-border">
-    <div class="card-body mt-2">
-        <h2 class="fw-bold container text-center here">Edit post</h2>
-        <div class="container col-8">
-            <form action="/admin/posts/edit" class="form-width" method="POST">
-                <div class="row-cols-1">
+<div class="container">
+    <div class="container-content-2">
+        <h1 class="text-center title">Edit post</h1>
+        <div class="mt-4">
+            <form action="/admin/posts/edit" class="" method="POST">
+                <div class="">
                     <input type="hidden" name="id" value="{{_id}}">
                     <label class="here fw-bold">Title:</label>
                     <input type="text" name="title" id="title" placeholder="New post title" value="{{title}}"
-                        class="form-control border-input-text"><br>
+                        class="input-control"><br>
                     <label class="here fw-bold">Slug: </label>
                     <input type="text" name="slug" id="slug" placeholder="New post slug" value="{{slug}}"
-                        class="form-control border-input-text"><br>
+                        class="input-control"><br>
                     <label class="here fw-bold">Description: </label>
                     <input type="text" name="description" placeholder="New post description" value="{{description}}"
-                        class="form-control border-input-text"><br>
+                        class="input-control"><br>
                     <label class="here fw-bold">Content: </label>
-                    <textarea name="content" class="form-control border-input-text"
+                    <textarea name="content" class="input-control"
                         placeholder="Enter the new content here">{{content}}</textarea><br>
                 </div><br>
-                <button class="btn-primary container text-center mb-3">Edit</button>
+                <button class="btn-init mb-3">Edit</button>
         </div>
         </form>
     </div>

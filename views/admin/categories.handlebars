@@ -1,18 +1,18 @@
-<div class="text-end marging-right-btn">
-    <a href="/admin/categories/add"><button class="btn-back">New category + </button></a>
-    <a href="/admin/posts"><button class="btn-back">Show posts </button></a>
+<div class="text-end">
+    <a href="/admin/categories/add"><button class="btn-init">New category + </button></a>
+    <a href="/admin/posts"><button class="btn-init">Show posts </button></a>
 </div>
 
 {{#each categories}}
-<div class="card container col-6 mt-3 bg-light purple-border">
-    <div class="card-body mt-2">
-        <h2 class="fw-bold container text-center here">{{title}}</h2><br>
+<div class="container">
+    <div class="container-content">
+        <h2>{{title}}</h2><br>
 
         <strong class="here">Slug: </strong><small>{{slug}}</small><br>
         <strong class="here">Creation date: </strong><small>{{date}}</small><br>
 
-        <div class="mt-4 d-flex align-items-center">
-            <a href="/admin/categories/edit/{{_id}}" class="col-separe-1"><button class="btn-primary"
+        <div class="mt-4 d-flex">
+            <a href="/admin/categories/edit/{{_id}}" class=""><button class="btn-init"
                     name="title">Edit</button></a>
             <form action="/admin/categories/delete" method="post">
                 <input type="hidden" name="id" value="{{_id}}">

@@ -1,13 +1,14 @@
-<div class="text-end marging-right-btn">
-    <a href="/admin/posts/add"><button class="btn-primary btn-back">New post + </button></a>
-    <a href="/admin/categories"><button class="btn-primary btn-back">Show categories </button></a>
+
+<div class="text-end">
+    <a href="/admin/posts/add"><button class="btn-init">New post + </button></a>
+    <a href="/admin/categories"><button class="btn-init">Show categories </button></a>
 </div>
 
 {{#each posts}}
 
-<div class="card container col-8 mt-3 bg-light purple-border">
-    <div class="card-body mt-2">
-        <h2 class="fw-bold container text-center here">{{title}}</h2><br>
+<div class="container">
+    <div class="container-content">
+        <h2 class="title text-center">{{title}}</h2><br>
 
         <strong class="here">Slug: </strong><small>{{slug}}</small><br>
         <strong class="here">Description: </strong><small>{{description}}</small><br>
@@ -15,8 +16,8 @@
         <strong class="here">Category: </strong><small>{{category.title}}</small><br>
         <strong class="here">Creation date: </strong><small>{{date}}</small><br>
 
-        <div class="mt-4 d-flex align-items-center">
-            <a href="/admin/posts/edit/{{_id}}" class="col-separe-1"><button class="btn-primary "
+        <div class="mt-4 d-flex">
+            <a href="/admin/posts/edit/{{_id}}" class=""><button class="btn-init "
                     name="title">Edit</button></a>
             <form action="/admin/posts/delete" method="post">
                 <input type="hidden" name="id" value="{{_id}}">

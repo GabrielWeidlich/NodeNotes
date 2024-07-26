@@ -1,57 +1,52 @@
-{{#if error}}
-<div class="alert alert-danger">{{error}}</div>
-{{/if}}
+<div class="container">
+  {{#if error}}
+  <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
 
-<div class="card bg-light mt-4 container purple-border">
-  <div class="card-body">
-
-    <h1 class="text-center fw-bold here">Welcome to the NodeNotes!</h1>
+  <div class="container-content">
+    <h1 class="text-center title">Welcome to the NodeNotes!</h1>
     <br>
-    <p class="text-justify text-indent">My project is a blog developed using Node.js, a robust and efficient platform
-      for web applications. The blog allows users to explore a variety of article categories and interact through
-      comments, providing a dynamic and interactive experience for readers.</p>
-    <p class="text-justify text-indent">To enhance the functionality and user experience, I utilized several key
-      libraries and
-      tools. The Express framework was used to build the core server-side functionality, allowing for efficient
-      routing
-      and middleware integration. Body-parser was employed to handle incoming request bodies, making it easier to
-      parse
-      and manipulate data sent by users. For the frontend, Handlebars was chosen as the templating engine, enabling
-      dynamic content rendering and seamless user interactions.</p>
-    <p class="text-justify text-indent"> Blog's data is managed using MongoDB, a NoSQL database that offers
-      flexibility and
-      scalability. This choice ensures that the application can handle a growing amount of data efficiently. Overall,
-      the combination of these technologies has resulted in a powerful and user-friendly blog platform, showcasing the
-      capabilities of modern web development with Node.js.</p>
+    <p class="">My project is a blog developed using Node.js, a robust and efficient platform for web applications. The
+      blog allows users to explore a variety of article categories and interact through comments, providing a dynamic
+      and interactive experience for readers.</p>
+    <p class="">To enhance the functionality and user experience, I utilized several key libraries and tools. The
+      Express framework was used to build the core server-side functionality, allowing for efficient routing and
+      middleware integration. Body-parser was employed to handle incoming request bodies, making it easier to parse and
+      manipulate data sent by users. For the frontend, Handlebars was chosen as the templating engine, enabling dynamic
+      content rendering and seamless user interactions.</p>
+    <p class=""> Blog's data is managed using MongoDB, a NoSQL database that offers flexibility and scalability. This
+      choice ensures that the application can handle a growing amount of data efficiently. Overall, the combination of
+      these technologies has resulted in a powerful and user-friendly blog platform, showcasing the capabilities of
+      modern web development with Node.js.</p>
     <br>
-    <small class="fw-bold fst-italic">Don't have an account yet? Create one by clicking <a href="/users/register"
+    <small class="">Don't have an account yet? Create one by clicking <a href="/users/register"
         class="here">HERE</a></small>
   </div>
-</div>
 
-<div class="card container mx-auto col-10 purple-border bg-light mt-5">
-  <div class="container text-center">
-    <h1 class="here mt-3 fw-bold my-3">Recent Posts</h1>
-  </div>
 
+  <h1 class="text-center title">Recent Posts</h1><br>
 
   {{#each posts}}
-
-  <div class="card container col-8 purple-border mt-4">
-    <div class="card-body mt-2">
+  <div class="container-content">
+    
+      
       <h3>{{title}}</h3>
-      <p><svg xmlns="http://www.w3.org/2000/svg" height="12" width="12"
-          viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-          <path fill="#30004f"
-            d="M304 48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zm0 416a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM48 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm464-48a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM142.9 437A48 48 0 1 0 75 369.1 48 48 0 1 0 142.9 437zm0-294.2A48 48 0 1 0 75 75a48 48 0 1 0 67.9 67.9zM369.1 437A48 48 0 1 0 437 369.1 48 48 0 1 0 369.1 437z" />
-        </svg> {{description}}</p>
-      <a href="/posts/{{slug}}" class="btn-primary">Read more</a>
-      <br><br>
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" height="12" width="9" viewBox="0 0 384 512">
+          <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path fill="#63E6BE"
+            d="M153.6 29.9l16-21.3C173.6 3.2 180 0 186.7 0C198.4 0 208 9.6 208 21.3V43.5c0 13.1 5.4 25.7 14.9 34.7L307.6 159C356.4 205.6 384 270.2 384 337.7C384 434 306 512 209.7 512H192C86 512 0 426 0 320v-3.8c0-48.8 19.4-95.6 53.9-130.1l3.5-3.5c4.2-4.2 10-6.6 16-6.6C85.9 176 96 186.1 96 198.6V288c0 35.3 28.7 64 64 64s64-28.7 64-64v-3.9c0-18-7.2-35.3-19.9-48l-38.6-38.6c-24-24-37.5-56.7-37.5-90.7c0-27.7 9-54.8 25.6-76.9z" />
+        </svg>
+        {{description}}
+      </p>
+      <a href="/posts/{{slug}}"><button class="btn-init">Read more</button></a>
+      <br>
       <strong class="here">Category: </strong><small>{{category.title}}</small><br>
-      <strong class="here">Post date: </strong><small>{{date}}</small>
-    </div>
+      <strong class="here">Post date: </strong><small>{{date}}</small><br>
+    
   </div>
-
   {{else}}
+  <p>No posts found.</p>
   {{/each}}
+
 </div>

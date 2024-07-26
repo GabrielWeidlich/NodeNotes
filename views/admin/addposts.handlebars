@@ -4,25 +4,25 @@
 
 {{/each}}
 
-<div class="card container mt-3 col-6 bg-light purple-border">
-    <div class="card-body mt-2">
-        <h2 class="fw-bold container text-center here">Add post</h2>
-        <div class="container col-8">
-            <form action="/admin/posts/new" method="post" class="form-width">
-                <div class="row-cols-1">
+<div class="container">
+    <div class="container-content-2">
+        <h1 class=" title text-center">Add post</h1>
+        <div class="mt-4">
+            <form action="/admin/posts/new" method="post" class="">
+                <div class="">
                     <label for="title" class="fw-bold here">Title:</label>
-                    <input type="text" class="form-control border-input-text" placeholder="Enter the title here" name="title"
+                    <input type="text" class="input-control" placeholder="Enter the title here" name="title"
                         id="title"><br>
                     <label for="slug" class="here fw-bold">Slug:</label>
-                    <input type="text" class="form-control border-input-text" placeholder="Enter the slug here" name="slug"
+                    <input type="text" class="input-control" placeholder="Enter the slug here" name="slug"
                         id="slug"><br>
                     <label for="description" class="here fw-bold">Description:</label>
-                    <input type="text" class="form-control border-input-text" placeholder="Enter the description here"
+                    <input type="text" class="input-control" placeholder="Enter the description here"
                         name="description" id="description"><br>
                     <label for="content" class="here fw-bold">Content:</label>
-                    <textarea name="content" class="form-control border-input-text" placeholder="Enter the content here"></textarea><br>
+                    <textarea name="content" class="input-control" placeholder="Enter the content here"></textarea><br>
                     <label for="categories" class="here fw-bold">Category:</label>
-                    <select name="category" class="form-select border-input-text">
+                    <select name="category" class="input-control">
                         {{#each categories}}
                         <option value="{{_id}}">{{title}}</option>
                         {{else}}
@@ -31,7 +31,7 @@
                     </select><br>
                 </div><br>
 
-                <button class="btn-primary container text-center mb-3">Add</button>
+                <button class="btn-init text-center mb-3">Add</button>
         </div>
         </form>
     </div>

@@ -63,7 +63,7 @@ app.use(bodyParser.json())
 
 //Mongoose
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGO_URI).then(() => {
+mongoose.connect('mongodb://localhost:27017/nodenotes').then(() => {//process.env.MONGO_URI
     console.log('Connected to MongoDB.')
 }).catch((error) => {
     console.log('An error has been ocurred ' + error)
